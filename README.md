@@ -5,6 +5,6 @@ Roughly speaking, the user provides a pickled scikit-learn model and gets a json
 
 **Please note that this is a very experimental service. Use at your own risk** 
 
-Early adopters feedback , improvement requests, hints ands github issues are welcome.
+Early adopters feedback , improvement requests, hints and github issues are welcome.
 
-The script test_client.py for a sample usage for this web service (running on `https://sklearn2sql.herokuapp.com/model`).
+The script test_client.py for a sample usage for this web service (running on `https://sklearn2sql.herokuapp.com/model`). More sampel scripts in the test directory.
