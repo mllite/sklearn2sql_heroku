@@ -55,7 +55,7 @@ for clf in models:
     clf.fit(X, Y)
     pickle_data = pickle.dumps(clf)
     for dialect in dialects:
-        print("GEENERATING_SQL_FOR" , clf.__class__.__name__ , dialect)
+        print("GENERATING_SQL_FOR" , clf.__class__.__name__ , dialect)
         lSQL = test_ws_sql_gen(pickle_data, dialect)
         print(lSQL)
 
