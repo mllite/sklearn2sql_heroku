@@ -8,6 +8,6 @@ Roughly speaking, the user provides a pickled scikit-learn model and gets a JSON
 
 Early adopters feedback , improvement requests, hints and github issues are welcome.
 
-The script `test_client.py` for a sample usage for this web service (running on `https://sklearn2sql.herokuapp.com/`). 
+The script [test_client.py](test_client.py) for a sample usage for this web service (running on `https://sklearn2sql.herokuapp.com/`). 
 
-More sample scripts in the `tests` directory (WIP).
+More sample scripts in the [tests](tests) directory (WIP).
