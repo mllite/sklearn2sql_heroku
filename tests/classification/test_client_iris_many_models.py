@@ -1,8 +1,8 @@
 # train all possible models on the iris dataset and generate the SQL code for each supported dialect.
 
-import numpy as np
-import pandas as pd
-import sqlalchemy as sa
+
+
+
 import pickle, json, requests, base64
 
 from sklearn.linear_model import *
