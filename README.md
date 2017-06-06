@@ -36,6 +36,8 @@ The script [test_client.py](test_client.py) is a sample usage for this web servi
 
 More sample scripts are available in the [tests](tests) directory (WIP).
 
+There is also a [Jupyter notebook](docs/WebService-MLP_Deploy.ipynb) demoing the service by executing the SQL code and comparing the deployment results.
+
 # About sklearn2sql
 
 Using sklearn2sql, it is possible to predict values from an already-fitted classifier or a regressor simply by executing some SQL code. It can be seen as an alternative to PMML-based methods to perform [In-database processing](https://en.wikipedia.org/wiki/In-database_processing).
