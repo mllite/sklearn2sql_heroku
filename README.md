@@ -9,8 +9,6 @@ sklearn2sql is an ongoing development tool for generating deployment SQL code fr
 
 For this web service, the user provides a pickled scikit-learn model and gets a JSON containing the SQL code for deploying the model.
 
-**Please note that this is a very experimental service. Use at your own risk** 
-
 Early adopters feedback , improvement requests, hints and github issues are welcome.
 
 # Demo
