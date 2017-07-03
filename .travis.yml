@@ -1,0 +1,19 @@
+language: python
+python:
+    - 3.5
+
+before_install:
+  
+
+install: 
+    pip install scipy pandas sklearn
+
+script: 
+    - export PYTHONPATH=$PYTHONPATH:..
+    - mkdir -p logs
+    - python ./tests/display_version_info.py
+    - python ./tests/demo.py
+    - python ./test_client.py
+    - make PYTHON=python -f tests/Makefile build-test
+    - python scripts/upload_to_chunk.io.py
+
