@@ -39,6 +39,6 @@ print("\n# ********************************************** \n");
 
 print("all: " , str1 , "\n\t\n");
 
-str2 = "classification regression";
+str2 = "databases classification regression";
 
 print("build-test : " , str2 , "\n\t\n");

@@ -46,6 +46,6 @@ regression/test_client_boston_many_models.py  :
 all:  databases classification regression 
 	
 
-build-test :  classification regression 
+build-test :  databases classification regression 
 	
 
