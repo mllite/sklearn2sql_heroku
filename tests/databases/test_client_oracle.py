@@ -18,7 +18,7 @@ clf.fit(X, Y)
 
 def test_ws_sql_gen(pickle_data):
     WS_URL="https://sklearn2sql.herokuapp.com/model"
-    b64_data = base64.b64encode(pickle_data)
+    b64_data = base64.b64encode(pickle_data).decode('utf-8')
     data={"Name":"model1", "PickleData":b64_data , "SQLDialect":"oracle"}
     r = requests.post(WS_URL, json=data)
     content = r.json()
