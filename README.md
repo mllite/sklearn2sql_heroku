@@ -1,5 +1,8 @@
 # sklearn2sql_heroku
 
+
+[![Build Status](https://travis-ci.org/antoinecarme/sklearn2sql_heroku.svg?branch=master)](https://travis-ci.org/antoinecarme/sklearn2sql_heroku)
+
 This is a Heroku web service client for experimenting with sklearn2sql.
 
 sklearn2sql is an ongoing development tool for generating deployment SQL code from [scikit-learn](http://scikit-learn.org/) objects.
