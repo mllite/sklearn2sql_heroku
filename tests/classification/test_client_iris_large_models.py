@@ -34,7 +34,11 @@ Y = iris.target
 
 dialects = ["db2", "hive", "mssql", "mysql", "oracle", "postgresql", "sqlite"];
 
-for lNbEstimatorsInEnsembles in [16 , 32, 64, 128, 256, 512]:
+
+lTested = [16]
+# lTested = [16 , 32, 64, 128, 256, 512]
+
+for lNbEstimatorsInEnsembles in lTested:
     models = [AdaBoostClassifier(n_estimators=lNbEstimatorsInEnsembles, random_state = 1960),
               BaggingClassifier(n_estimators=lNbEstimatorsInEnsembles, random_state = 1960),
               ExtraTreesClassifier(n_estimators=lNbEstimatorsInEnsembles, max_depth=3, min_samples_leaf=15, random_state = 1960),
