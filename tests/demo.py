@@ -8,7 +8,7 @@ iris = datasets.load_iris()# or whatever dataset
 clf = RandomForestClassifier(n_estimators=12, random_state = 1960).fit(iris.data, iris.target)
 
 # stringify the model
-b64_data = base64.b64encode(pickle.dumps(clf))
+b64_data = base64.b64encode(pickle.dumps(clf)).decode('utf-8')
 # send the model th the web service
 json_data={"Name":"model1", "PickleData":b64_data , "SQLDialect":"oracle"}
 r = requests.post("https://sklearn2sql.herokuapp.com/model", json=json_data)
