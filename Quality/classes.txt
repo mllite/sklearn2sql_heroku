@@ -1,3 +1,5 @@
+cGenerationWrapperFactory::createScikitObject() <class 'lightgbm.sklearn.LGBMClassifier'>
+cGenerationWrapperFactory::createScikitObject() <class 'lightgbm.sklearn.LGBMRegressor'>
 cGenerationWrapperFactory::createScikitObject() <class 'sklearn.calibration.CalibratedClassifierCV'>
 cGenerationWrapperFactory::createScikitObject() <class 'sklearn.covariance.outlier_detection.EllipticEnvelope'>
 cGenerationWrapperFactory::createScikitObject() <class 'sklearn.decomposition.factor_analysis.FactorAnalysis'>
