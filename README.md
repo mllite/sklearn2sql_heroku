@@ -49,3 +49,12 @@ It is designed to support all [classification and regression methods in scikit-l
 
 Roughly speaking, sklearn2sql allows one to translate a scikit learn model as a large, machine-friendly ;) SQL code that can later be executed on your favorite database.  For example, this is a [multilayer perceptron on oracle](https://github.com/antoinecarme/sklearn2sql-demo/blob/master/sample_outputs_round_8/MLPClassifier/BreastCancer/oracle/demo2_MLPClassifier_oracle.sql) , and this is a [random forest on postgresql](https://github.com/antoinecarme/sklearn2sql-demo/blob/master/sample_outputs_round_8/RandomForestClassifier/FourClass_100/pgsql/demo2_RandomForestClassifier_pgsql.sql) .... 
 
+# SQL Generation Quality 
+
+We performed a set of benchmarks. We trained each supported model on a set of datasets (provided with sklearn), and generated the code for each database, compared the generated result with the python result.
+
+The following figure gives the error rate of the system (as of 2017-07-26) for each database and each group of models. For instance, the group 'sklearn.ensemble' stands for all ensemble methods tests (AdaBoost, Bagging, GradientBoosting, RandomForest, ExtraTrees, etc).
+
+Quality/sklearn2sql_quality.png
+
+The detailed result of the quality tests is available in this [jupyter notebook](Quality/extensive_tests-debrief.ipynb) and will updated when needed.
