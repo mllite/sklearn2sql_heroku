@@ -6,6 +6,10 @@ from sklearn.neural_network import *
 from sklearn.ensemble import *
 from sklearn.dummy import *
 
+import xgboost as xgb
+import lightgbm as lgb
+
+
 def get_human_friendly_name(model):
     if(hasattr(model , 'kernel')):
         lkernel = model.kernel
@@ -26,7 +30,10 @@ def get_models():
             SVR(max_iter=200, kernel='linear'),
             SVR(max_iter=400, kernel='poly'),
             SVR(max_iter=200, kernel='rbf'),
-            MLPRegressor(solver='lbfgs', alpha=1e-5, hidden_layer_sizes=(3, 5), random_state=1960)]
+            MLPRegressor(solver='lbfgs', alpha=1e-5, hidden_layer_sizes=(3, 5), random_state=1960),
+            xgb.XGBRegressor(n_estimators=10,  nthread=1, min_child_weight=10, max_depth=3, seed=1960),
+            lgb.LGBMRegressor(objective='regression',num_leaves=20, learning_rate=0.05, n_estimators=10)
+            ]
 
     tested_regressors = {};
     for (i, reg) in enumerate(models) :
