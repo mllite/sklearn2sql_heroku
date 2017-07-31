@@ -11,7 +11,7 @@ def createDirIfNeeded(dirname):
 
 def create_script(model, ds, dialect):
     print("GENERATING_MODEL" , model, ds, dialect);
-    dirname = "tests/regression/" + str(ds) ;
+    dirname = "tests/classification/" + str(ds) ;
     print(dirname);
     createDirIfNeeded(dirname);
     filename = dirname + "/ws_" + ds + "_" + model + "_" + dialect + "_code_gen.py";

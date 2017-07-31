@@ -7,6 +7,7 @@ from sklearn.ensemble import *
 from sklearn.dummy import *
 
 import xgboost as xgb
+import lightgbm as lgb
 
 def get_human_friendly_name(model):
     if(hasattr(model , 'kernel')):
@@ -20,20 +21,21 @@ def get_models():
     lNbEstimatorsInEnsembles = 12
     
     models = [DecisionTreeClassifier(max_depth=5, random_state = 1960) ,
-                        DummyClassifier(),
-                        AdaBoostClassifier(n_estimators=lNbEstimatorsInEnsembles, random_state = 1960),
-                        GradientBoostingClassifier(n_estimators=lNbEstimatorsInEnsembles, random_state = 1960),
-                        SGDClassifier( random_state = 1960),
-                        LogisticRegression( random_state = 1960),
-                        RandomForestClassifier(n_estimators=lNbEstimatorsInEnsembles, random_state = 1960),
-                        GaussianNB(),
-                        SVC(max_iter=200, probability=True, kernel='linear', decision_function_shape='ovr'),
-                        SVC(max_iter=400, probability=True, kernel='poly', decision_function_shape='ovr'),
-                        SVC(max_iter=200, probability=True, kernel='rbf', decision_function_shape='ovr'),
-                        MLPClassifier(solver='lbfgs', alpha=1e-5, hidden_layer_sizes=(3, 5), random_state=1960),
-                        RidgeClassifier(random_state = 1960),
-                        xgb.XGBClassifier(n_estimators=10, nthread=1, min_child_weight=10, max_depth=3, seed=1960),
-                        SVC(max_iter=200, probability=True, kernel='sigmoid', decision_function_shape='ovr')]
+              DummyClassifier(),
+              AdaBoostClassifier(n_estimators=lNbEstimatorsInEnsembles, random_state = 1960),
+              GradientBoostingClassifier(n_estimators=lNbEstimatorsInEnsembles, random_state = 1960),
+              SGDClassifier( random_state = 1960),
+              LogisticRegression( random_state = 1960),
+              RandomForestClassifier(n_estimators=lNbEstimatorsInEnsembles, random_state = 1960),
+              GaussianNB(),
+              SVC(max_iter=200, probability=True, kernel='linear', decision_function_shape='ovr'),
+              SVC(max_iter=400, probability=True, kernel='poly', decision_function_shape='ovr'),
+              SVC(max_iter=200, probability=True, kernel='rbf', decision_function_shape='ovr'),
+              MLPClassifier(solver='lbfgs', alpha=1e-5, hidden_layer_sizes=(3, 5), random_state=1960),
+              RidgeClassifier(random_state = 1960),
+              xgb.XGBClassifier(n_estimators=10, nthread=1, min_child_weight=10, max_depth=3, seed=1960),
+              SVC(max_iter=200, probability=True, kernel='sigmoid', decision_function_shape='ovr'),
+              lgb.LGBMClassifier(num_leaves=40, learning_rate=0.05, n_estimators=10)]
     
     tested_classifiers = {};
     for (i, clf) in enumerate(models) :
