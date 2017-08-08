@@ -53,7 +53,7 @@ Roughly speaking, sklearn2sql allows one to translate a scikit learn model as a 
 
 We performed a set of benchmarks. We trained each supported model on a set of datasets (provided with sklearn), and generated the code for each database, compared the generated result with the python result.
 
-The following figure gives **the error rate of the system** (as of 2017-07-26) for each database and each group of models. For instance, the group 'sklearn.ensemble' stands for all ensemble methods tests (AdaBoost, Bagging, GradientBoosting, RandomForest, ExtraTrees, etc).
+The following figure gives **the error rate of the system** (as of 2017-08-08) for each database and each group of models. For instance, the group 'sklearn.ensemble' stands for all ensemble methods tests (AdaBoost, Bagging, GradientBoosting, RandomForest, ExtraTrees, etc).
 
 ![sample quality report](Quality/sklearn2sql_quality.png)
 
