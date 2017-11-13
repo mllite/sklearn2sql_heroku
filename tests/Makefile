@@ -1,13 +1,15 @@
 PYTHON=python3
 
 
+classification/generic.py  :  
+	 -$(PYTHON)  tests/classification/generic.py  >  logs/classification_generic.log  2>&1
 classification/test_client_iris_large_models.py  :  
 	 -$(PYTHON)  tests/classification/test_client_iris_large_models.py  >  logs/classification_test_client_iris_large_models.log  2>&1
-classification/test_client_iris_many_models.py  :  
-	 -$(PYTHON)  tests/classification/test_client_iris_many_models.py  >  logs/classification_test_client_iris_many_models.log  2>&1
+classification/test_client_many_class_models.py  :  
+	 -$(PYTHON)  tests/classification/test_client_many_class_models.py  >  logs/classification_test_client_many_class_models.log  2>&1
 
 
- classification :  classification/test_client_iris_many_models.py classification/test_client_iris_large_models.py  
+ classification :  classification/test_client_many_class_models.py classification/test_client_iris_large_models.py classification/generic.py  
  
 
 databases/test_client_bad_model.py  :  
@@ -33,11 +35,13 @@ databases/test_client_sqlite.py  :
  databases :  databases/test_client_sqlite.py databases/test_client_pgsql.py databases/test_client_oracle.py databases/test_client_non_supported_dialect.py databases/test_client_mysql.py databases/test_client_mssql.py databases/test_client_hive.py databases/test_client_db2.py databases/test_client_bad_model.py  
  
 
-regression/test_client_boston_many_models.py  :  
-	 -$(PYTHON)  tests/regression/test_client_boston_many_models.py  >  logs/regression_test_client_boston_many_models.log  2>&1
+regression/generic.py  :  
+	 -$(PYTHON)  tests/regression/generic.py  >  logs/regression_generic.log  2>&1
+regression/test_client_many_reg_models.py  :  
+	 -$(PYTHON)  tests/regression/test_client_many_reg_models.py  >  logs/regression_test_client_many_reg_models.log  2>&1
 
 
- regression :  regression/test_client_boston_many_models.py  
+ regression :  regression/test_client_many_reg_models.py regression/generic.py  
  
 
 
