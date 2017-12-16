@@ -68,4 +68,4 @@ The following figure gives **the error rate of the system** (as of 2017-12-16) f
 
 ![sample quality report](Quality/sklearn2sql_quality.png)
 
-The detailed result of the quality tests is available in this [jupyter notebook](Quality/extensive_tests-debrief.ipynb) and will updated when needed. Last update : [changes](https://github.com/antoinecarme/sklearn2sql_heroku/commit/e990776238c9f89f35991212b93d5a65ff64138a#diff-afe4f3ba8d4cc68b5003ab9a4c0ac616)
+The detailed result of the quality tests is available in this [jupyter notebook](Quality/extensive_tests-debrief.ipynb) and will updated when needed. Last update : [changes](https://github.com/antoinecarme/sklearn2sql_heroku/commit/40965726c0790d347785f7414b893c96d14e53e6#diff-afe4f3ba8d4cc68b5003ab9a4c0ac616)
