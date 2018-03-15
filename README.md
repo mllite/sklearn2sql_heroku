@@ -63,9 +63,9 @@ This design has  a significant impact on the performance. All SQL codes are test
 
 We performed a set of benchmarks. We trained each supported model on a set of datasets (provided with sklearn), and generated the code for each database, compared the generated result with the python result.
 
-The following figure gives **the error rate of the system** (as of 2017-12-16) for each database and each group of models. For instance, the group 'sklearn.ensemble' stands for all ensemble methods tests (AdaBoost, Bagging, GradientBoosting, RandomForest, ExtraTrees, etc).
+The following figure gives **the error rate of the system** (as of 2018-03-15) for each database and each group of models. For instance, the group 'sklearn.ensemble' stands for all ensemble methods tests (AdaBoost, Bagging, GradientBoosting, RandomForest, ExtraTrees, etc).
 
 
 ![sample quality report](Quality/sklearn2sql_quality.png)
 
-The detailed result of the quality tests is available in this [jupyter notebook](Quality/extensive_tests-debrief.ipynb) and will updated when needed. Last update : [changes](https://github.com/antoinecarme/sklearn2sql_heroku/commit/40965726c0790d347785f7414b893c96d14e53e6#diff-afe4f3ba8d4cc68b5003ab9a4c0ac616)
+The detailed result of the quality tests is available in this [jupyter notebook](Quality/extensive_tests-debrief.ipynb) and will updated when needed. Last update : [changes](https://github.com/antoinecarme/sklearn2sql_heroku/commit/cf38f9da9000fa260cd8c684ad143a6e34852a5f#diff-afe4f3ba8d4cc68b5003ab9a4c0ac616)
