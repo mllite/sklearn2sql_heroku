@@ -18,7 +18,7 @@ def test_ws_sql_gen(pickle_data):
     b64_data = base64.b64encode(pickle_data).decode('utf-8')
     data={"Name":"model1", "PickleData":b64_data , "SQLDialect":"postgresql"}
     r = requests.post(WS_URL, json=data)
-    r.raise_for_status()
+    # r.raise_for_status()
     content = r.json()
     # print(content.keys())
     # print(content)
