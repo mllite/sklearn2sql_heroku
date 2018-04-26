@@ -63,7 +63,7 @@ This design has  a significant impact on the performance. All SQL codes are test
 
 We performed a set of benchmarks. We trained each supported model on a set of datasets (provided with sklearn), and generated the code for each database, compared the generated result with the python result.
 
-The following figure gives **the error rate of the system** (as of 2018-04-09) for each database and each group of models. For instance, the group 'sklearn.ensemble' stands for all ensemble methods tests (AdaBoost, Bagging, GradientBoosting, RandomForest, ExtraTrees, etc).
+The following figure gives **the error rate of the system** (as of 2018-04-26) for each database and each group of models. For instance, the group 'sklearn.ensemble' stands for all ensemble methods tests (AdaBoost, Bagging, GradientBoosting, RandomForest, ExtraTrees, etc).
 
 
 ![sample quality report](Quality/sklearn2sql_quality.png)
