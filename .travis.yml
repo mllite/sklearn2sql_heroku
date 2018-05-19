@@ -6,7 +6,7 @@ before_install:
   
 
 install: 
-    pip install scipy pandas sklearn requests
+    pip install scipy pandas sklearn requests xgboost lightgbm
 
 script: 
     - mkdir -p logs
