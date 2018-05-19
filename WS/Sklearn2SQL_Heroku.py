@@ -11,9 +11,9 @@ sklearn2sql_uri = os.environ.get("SKLEARN2SQL_URI", "http://c:1888")
 
 def get_post_response(request1):
     # request1 = request
-    print(request1.json)
+    # print(request1.json)
     r = requests.post(sklearn2sql_uri + "/model", json=request1.json)
-    print("JSON", r.json())
+    # print("JSON", r.json())
     response = app.response_class(
         response=json.dumps(r.json()),
         status=200,
