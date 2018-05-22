@@ -16,26 +16,42 @@ def get_post_response(request1):
     # print("JSON", r.json())
     response = app.response_class(
         response=json.dumps(r.json()),
-        status=200,
+        status=r.status_code,
         mimetype='application/json'
     )
     # json.dumps(data)
     return response
 
 
+def get_get_response(request1 , uri):
+    # request1 = request
+    # print(request1.json)
+    r = requests.get(uri, json=request1.json)
+    # print("JSON", r.json())
+    response = app.response_class(
+        response=json.dumps(r.json()),
+        status=r.status_code,
+        mimetype='application/json'
+    )
+    # json.dumps(data)
+    return response
+
+
+
+
 @app.route('/', methods=['GET'])
 def test():
-    return redirect(sklearn2sql_uri, code=307)
+    return get_get_response(request, sklearn2sql_uri)
 
 @app.route('/models', methods=['GET'])
 def returnAllModels():
-    return redirect(sklearn2sql_uri, code=307)
+    return get_get_response(request, sklearn2sql_uri + "/models")
 
 
 
 @app.route('/model/<string:name>', methods=['GET'])
 def returnOneModel(name):
-    return redirect(sklearn2sql_uri + "/model/" + name, code=307)
+    return get_get_response(request, sklearn2sql_uri + "/model/" + name)
 
 
 # POST requests
