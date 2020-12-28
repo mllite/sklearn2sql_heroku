@@ -2,13 +2,13 @@ dist: xenial
 
 language: python
 python:
-    - 3.7
+    - 3.8
 
 before_install:
   
 
 install: 
-    pip install scipy pandas sklearn requests xgboost lightgbm
+    pip install scipy numpy pandas sklearn requests xgboost lightgbm
 
 script: 
     - mkdir -p logs
