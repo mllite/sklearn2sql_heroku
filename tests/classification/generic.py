@@ -15,7 +15,14 @@ def get_human_friendly_name(model):
         return str(model.__class__.__name__) + "_" + str(lkernel)
     return str(model.__class__.__name__);
 
+import os
 
+def make_dir(full_path):
+    try:
+        os.makedirs(full_path)
+    except:
+        pass
+    
 def get_models():
 
     lNbEstimatorsInEnsembles = 12
@@ -63,8 +70,8 @@ def get_datasets():
 
 def test_ws_sql_gen(pickle_data, dialect):
     import pickle, json, requests, base64
-    WS_URL="https://sklearn2sql.herokuapp.com/model"
-    # WS_URL="http://localhost:1888/model"
+    # WS_URL="https://sklearn2sql.herokuapp.com/model"
+    WS_URL="http://localhost:1888/model"
     b64_data = base64.b64encode(pickle_data).decode('utf-8')
     data={"Name":"model1", "PickleData":b64_data , "SQLDialect":dialect}
     r = requests.post(WS_URL, json=data)
@@ -83,7 +90,7 @@ def test_ws_sql_gen(pickle_data, dialect):
         return None
 
 def get_known_dialects():
-    dialects = ["db2", "mssql", "mysql", "oracle", "postgresql", "sqlite"];
+    dialects = ["db2", "mssql", "mysql", "oracle", "postgresql", "sqlite", "duckdb"];
     return dialects
 
 def serialize_model(model_name , dataset_name):
@@ -91,7 +98,9 @@ def serialize_model(model_name , dataset_name):
     import os.path
     import sklearn 
     lVersion = sklearn.__version__;
-    lCacheName = "tests/pickle_cache/sklclass_" + lVersion + "_" + dataset_name + "_" + model_name + ".pickle"
+    lDir =  "/tmp/pickle_cache/classification/" + dataset_name
+    make_dir(lDir)
+    lCacheName = lDir + "/sklclass_" + lVersion + "_" + dataset_name + "_" + model_name + ".pickle"
     if(os.path.exists(lCacheName)):
         cache_file = open(lCacheName, "rb");
         pickle_data = cache_file.read()
