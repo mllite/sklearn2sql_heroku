@@ -9,6 +9,13 @@ from sklearn.dummy import *
 import xgboost as xgb
 import lightgbm as lgb
 
+import os
+
+def make_dir(full_path):
+    try:
+        os.makedirs(full_path)
+    except:
+        pass
 
 def get_human_friendly_name(model):
     if(hasattr(model , 'kernel')):
@@ -48,7 +55,7 @@ def get_datasets():
 
     gDatasets = {};
     gDatasets["diabetes"] = datasets.load_diabetes()
-    gDatasets["boston"] = datasets.load_boston()
+    gDatasets["california_housing"] = datasets.fetch_california_housing()
     gDatasets["freidman1"] = datasets.make_friedman1(random_state=1960)
     gDatasets["freidman2"] = datasets.make_friedman2(random_state=1960)
     gDatasets["freidman3"] = datasets.make_friedman3(random_state=1960)
@@ -60,8 +67,8 @@ def get_datasets():
 
 def test_ws_sql_gen(pickle_data, dialect):
     import pickle, json, requests, base64
-    WS_URL="https://sklearn2sql.herokuapp.com/model"
-    # WS_URL="http://localhost:1888/model"
+    # WS_URL="https://sklearn2sql.herokuapp.com/model"
+    WS_URL="http://localhost:1888/model"
     b64_data = base64.b64encode(pickle_data).decode('utf-8')
     data={"Name":"model1", "PickleData":b64_data , "SQLDialect":dialect}
     r = requests.post(WS_URL, json=data)
@@ -80,7 +87,7 @@ def test_ws_sql_gen(pickle_data, dialect):
         return None
 
 def get_known_dialects():
-    dialects = ["db2", "mssql", "mysql", "oracle", "postgresql", "sqlite"];
+    dialects = ["db2", "mssql", "mysql", "oracle", "postgresql", "sqlite" , "duckdb"];
     return dialects
 
 def serialize_model(model_name , dataset_name):
@@ -88,7 +95,9 @@ def serialize_model(model_name , dataset_name):
     import os.path
     import sklearn 
     lVersion = sklearn.__version__;
-    lCacheName = "tests/pickle_cache/sklreg_" + lVersion + "_" + dataset_name + "_" + model_name + ".pickle"
+    lDir =  "/tmp/pickle_cache/regression/" + dataset_name
+    make_dir(lDir)
+    lCacheName = lDir + "/sklreg_" + lVersion + "_" + dataset_name + "_" + model_name + ".pickle"
     if(os.path.exists(lCacheName)):
         cache_file = open(lCacheName, "rb");
         pickle_data = cache_file.read()

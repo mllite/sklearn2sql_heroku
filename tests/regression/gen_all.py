@@ -26,7 +26,7 @@ def create_script(model, ds, dialect):
 models = reg_gen.get_models()
 datasets = reg_gen.get_datasets()
 
-dialects = ["db2", "hive", "mssql", "mysql", "oracle", "postgresql", "sqlite"];
+dialects = reg_gen.get_known_dialects()
 
 for model in models.keys():
     for ds in datasets.keys():
